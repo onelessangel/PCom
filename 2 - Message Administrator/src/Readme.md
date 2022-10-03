@@ -2,8 +2,9 @@ Copyright Teodora Stroe 321CA 2022
 
 # TCP & UDP client-server application for message handling
 
+
 ## 1. FILE GUIDE
--------------
+
 
 ```
 .
@@ -15,9 +16,9 @@ Copyright Teodora Stroe 321CA 2022
 └── utils.hpp           -- common macros and DIE macro
 ```
 
--------------
+
 ## 2. STRUCTURES
--------------
+
 
 ### i. udp_message:
 - __used for__:   storing UDP messages
@@ -32,9 +33,9 @@ Copyright Teodora Stroe 321CA 2022
 - __used for__:   memorizing basic information about a TCP client
 - __containing__: socket file descriptor, ID
 
----------------
+
 ## 3. PROGRAM FLOW
----------------
+
 
 Both the server and the subscriber depend on the correct execution of the executable.
 
@@ -84,9 +85,9 @@ If it receives a meesage from the server:
 
 If it receives the EXIT command from the user, it closes.
 
----------------
+
 ## 3. TCP PROTOCOL
----------------
+
 
 - The operations are performed efficiently, each client only receiving messages for
 one of his topics.
@@ -96,9 +97,9 @@ of the message as an unsigned 4-byte number (uint32_t), then the message itself.
 This approach was chosen to prevent truncation / concatenation, which would have
 been more likely to occur when sending / reading messages with a fixed length.
 
------------------
+
 ## 4. ERROR HANDLING
------------------
+
 
 The errors reported by the "socket.h" API are handled using the DIE macro.
 
@@ -108,16 +109,16 @@ a message is displayed to STDERR in order not to load the STDOUT stream.
 A possible command for maximizing the program's efficiency and ease debugging would be:
 `./server 1234 2>server.log`
 
-----------
+
 ## 5. TESTING
-----------
+
 
 Current solution has been tested manually and using the checker for efficiency
 with more than 100 fast messages.
 
-----------
+
 ## 6. REFERENCES
-----------
+
 
 [1] TCP/IP Protocol Design: Message Framing, https://www.codeproject.com/Articles/37496/TCP-IP-Protocol-Design-Message-Framing
 
