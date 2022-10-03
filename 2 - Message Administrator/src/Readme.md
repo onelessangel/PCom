@@ -43,12 +43,12 @@ algorithm is disabled.
 
 ## -- THE SERVER --
 
-It can store unlimited clients/messages due to the usage of std::vector and std::queue
+It can store unlimited clients/messages due to the usage of _std::vector_ and _std::queue_
 structures.
 
 The server retains:
-- <connected_clients> -- a set of connected TCP clients
-- <subscribers_DB>    -- a subscribers database for each topic
+- _<connected_clients>_ -- a set of connected TCP clients
+- _<subscribers_DB>_    -- a subscribers database for each topic
 
 When the server receives a new request on the UDP socket:
 - the message is read and stored into a buffer
@@ -70,13 +70,13 @@ When the server receives a new request on the TCP socket:
     - if it's a closed connection, deletes client from connected_clients and updates subscribers connection status
     - otherwise, receives the command, updates subscribers and adds/removes subscribers as necessary
 
-When the server receives EXIT from user input:
-- send EXIT message to all connected clients
+When the server receives _EXIT_ from user input:
+- sends EXIT message to all connected clients
 - closes clients' sockets
 
 ## -- THE SUBSCRIBER --
 
-When first connected, send ID to the server.
+When first connected, sends ID to the server.
 
 If it receives a meesage from the server:
 - it it's EXIT, it closes;
